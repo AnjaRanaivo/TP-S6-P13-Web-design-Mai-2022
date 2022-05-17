@@ -1,18 +1,11 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-class ConseqModel extends CI_Model{
-
-    function genererHtml($actu){
-        //$file = fopen($actu['url'].".html",'a');
-        file_put_contents("./application/views/".$actu['url'].".html",'<main id="main">
+<main id="main">
 
         <!-- ======= Breadcrumbs ======= -->
         <section id="breadcrumbs" class="breadcrumbs">
           <div class="container">
     
             <div class="d-flex justify-content-between align-items-center">
-              <h1>'.$actu['titre'].'</h1>
+              <h1>Dérèglement climatique</h1>
             </div>
     
           </div>
@@ -29,7 +22,7 @@ class ConseqModel extends CI_Model{
                   <div class="swiper-wrapper align-items-center">
     
                     <div class="swiper-slide">
-                      <img src="'.assets_url("/img/conseq/".$actu['image']).'" alt="">
+                      <img src="http://infoclim.alwaysdata.net/assets/img/actualites/actu12.jpg" alt="">
                     </div>
     
                   </div>
@@ -41,13 +34,20 @@ class ConseqModel extends CI_Model{
                 <div class="portfolio-info">
                   <h3>Détails</h3>
                   <ul>
-                    <li><strong>Titre</strong>: '.$actu['titre'].'</li>
+                    <li><strong>Titre</strong>: Dérèglement climatique</li>
+                    <li><strong>Continent</strong>: Afrique</li>
+                    <li><strong>Date</strong>: 2021-01-10</li>
                   </ul>
                 </div>
                 <div class="portfolio-description">
-                  <h2>'.$actu['titre'].'</h2>
+                  <h2>Dérèglement climatique</h2>
                   <p>
-                  '.$actu['description'].'
+                  Actuellement, 62% de la population française est exposée aux
+ risques climatiques. Afin de s’adapter au dérèglement climatique, de nombreuses personnes seraient contraintes, dans un futur proche,
+  à quitter leur lieu d’habitation. Ce phénomène pourrait alors avoir comme conséquences la multiplication du nombre de réfugiés climatiques
+   à travers le monde, mais aussi une augmentation de l’instabilité géopolitique. Le dérèglement climatique pourrait de même avoir un impact
+    sur la santé de l’Homme. Les vagues de chaleur et les précipitations, de plus en plus intenses et fréquentes, pourraient influer sur la
+     production alimentaire et la disponibilité en eau.
                 </p>
                 </div>
               </div>
@@ -57,27 +57,4 @@ class ConseqModel extends CI_Model{
           </div>
         </section><!-- End Portfolio Details Section -->
     
-      </main><!-- End #main -->');
-    }
-
-    public function getListeConseq() {
-        $req="select * from consequence";
-        $list = array();
-        $query = $this->db->query($req);
-        foreach ($query->result_array() as $row){
-            $list[] = $row;
-        }
-        return $list;
-    }
-
-    public function getConseq($id) {
-        $req="select * from consequence where id=".$id;
-        $list = array();
-        $query = $this->db->query($req);
-        foreach ($query->result_array() as $row){
-            $list[] = $row;
-        }
-        return $list[0];
-    }
-}
-?>
+      </main><!-- End #main -->

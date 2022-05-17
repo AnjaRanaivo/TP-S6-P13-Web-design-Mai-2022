@@ -2,7 +2,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Impacts du réchauffement climatique</h2>
+          <h1>Impacts du réchauffement climatique</h1>
         </div>
 
         <div class="row">

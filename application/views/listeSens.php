@@ -2,7 +2,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Sensibilisations</h2>
+          <h1>Sensibilisations</h1>
         </div>
 
         <div class="row">

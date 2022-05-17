@@ -34,6 +34,10 @@ class SensController extends CI_Controller {
         else{
 		$data['vue'] = 'ficheSens';
 		$data['title'] = $data['sensibilisation']['titre'];
+		if(!(file_exists("./application/views/".$data['sensibilisation']['url'].".html"))){
+			$this->SensModel->genererHtml($data['sensibilisation']);
+		}
+		$this->output->cache(10);
 		$this->load->view('template',$data);
         }
     }

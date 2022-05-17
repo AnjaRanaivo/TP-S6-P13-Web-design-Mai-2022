@@ -1,18 +1,11 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-class ConseqModel extends CI_Model{
-
-    function genererHtml($actu){
-        //$file = fopen($actu['url'].".html",'a');
-        file_put_contents("./application/views/".$actu['url'].".html",'<main id="main">
+<main id="main">
 
         <!-- ======= Breadcrumbs ======= -->
         <section id="breadcrumbs" class="breadcrumbs">
           <div class="container">
     
             <div class="d-flex justify-content-between align-items-center">
-              <h1>'.$actu['titre'].'</h1>
+              <h1>Augmentation du prix de l'électricité</h1>
             </div>
     
           </div>
@@ -29,7 +22,7 @@ class ConseqModel extends CI_Model{
                   <div class="swiper-wrapper align-items-center">
     
                     <div class="swiper-slide">
-                      <img src="'.assets_url("/img/conseq/".$actu['image']).'" alt="">
+                      <img src="http://infoclim.alwaysdata.net/assets/img/actualites/actu14.jpg" alt="">
                     </div>
     
                   </div>
@@ -41,13 +34,17 @@ class ConseqModel extends CI_Model{
                 <div class="portfolio-info">
                   <h3>Détails</h3>
                   <ul>
-                    <li><strong>Titre</strong>: '.$actu['titre'].'</li>
+                    <li><strong>Titre</strong>: Augmentation du prix de l'électricité</li>
+                    <li><strong>Continent</strong>: Amérique</li>
+                    <li><strong>Date</strong>: 2022-01-10</li>
                   </ul>
                 </div>
                 <div class="portfolio-description">
-                  <h2>'.$actu['titre'].'</h2>
+                  <h2>Augmentation du prix de l'électricité</h2>
                   <p>
-                  '.$actu['description'].'
+                  Depuis des années, les tarifs de l'énergie n’ont cessé d’augmenter ce qui pèse lourd sur la facture des ménages. Mais cette augmentation s’est accentuée ces derniers mois, entrainant une flambée du prix du kilowattheure (kWh).
+La dernière augmentation en date remonte au 1er août 2021 avec une hausse de +0,48% suite à l’annonce de la Commission de 
+Régulation de l'Énergie (CRE), mais elle n’est que la suite d’une série d’augmentations particulièrement intense depuis début 2021.
                 </p>
                 </div>
               </div>
@@ -57,27 +54,4 @@ class ConseqModel extends CI_Model{
           </div>
         </section><!-- End Portfolio Details Section -->
     
-      </main><!-- End #main -->');
-    }
-
-    public function getListeConseq() {
-        $req="select * from consequence";
-        $list = array();
-        $query = $this->db->query($req);
-        foreach ($query->result_array() as $row){
-            $list[] = $row;
-        }
-        return $list;
-    }
-
-    public function getConseq($id) {
-        $req="select * from consequence where id=".$id;
-        $list = array();
-        $query = $this->db->query($req);
-        foreach ($query->result_array() as $row){
-            $list[] = $row;
-        }
-        return $list[0];
-    }
-}
-?>
+      </main><!-- End #main -->

@@ -71,9 +71,14 @@ class ActuBackController extends CI_Controller {
 		$date=$this->input->post('date');
 		$titre=$this->input->post('titre');
 		$description=$this->input->post('description');
+		$actu = $this->ActuModel->getActu($id); 
+		if(file_exists("./application/views/".$actu['url'].".html")){
+			unlink("./application/views/".$actu['url'].".html");
+		}
 		$delimiter="-";
-        $url = strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', $delimiter, iconv('UTF-8', 'ASCII//TRANSLIT', $titre))))), $delimiter));
-        $this->ActuModel->modifier($id,$date,$titre,$description,$url);
+        //$url = strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', '-', iconv('UTF-8', 'ASCII//TRANSLIT', $titre))))), $delimiter));
+        $url = $this->ActuModel->slug($titre);
+		$this->ActuModel->modifier($id,$date,$titre,$description,$url);
 		$this->liste();
 	}
 
@@ -96,8 +101,8 @@ class ActuBackController extends CI_Controller {
         $description=$this->input->post('description');
         $delimiter="-";
 		$path=null;
-        $url = strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', $delimiter, iconv('UTF-8', 'ASCII//TRANSLIT', $titre))))), $delimiter));
-        
+        //$url = strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', $delimiter, iconv('UTF-8', 'ASCII//TRANSLIT', $titre))))), $delimiter));
+        $url = $this->ActuModel->slug($titre);
 		
 		$config['upload_path']          = './assets/img/actualites';
 		$config['allowed_types']        = '*';

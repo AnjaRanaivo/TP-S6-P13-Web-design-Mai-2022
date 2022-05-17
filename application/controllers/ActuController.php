@@ -34,6 +34,10 @@ class ActuController extends CI_Controller {
         else{
             $data['vue'] = 'ficheActu';
             $data['title'] = $data['actualite']['titre'];
+			if(!(file_exists("./application/views/".$data['actualite']['url'].".html"))){
+				$this->ActuModel->genererHtml($data['actualite']);
+			}
+			$this->output->cache(10);
             $this->load->view('template',$data);
         }
     }

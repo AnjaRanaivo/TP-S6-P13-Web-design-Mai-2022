@@ -2,7 +2,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Actualités</h2>
+          <h1>Actualités</h1>
         </div>
 
         <div class="row">

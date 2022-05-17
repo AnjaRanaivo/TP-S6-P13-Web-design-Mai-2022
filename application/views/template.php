@@ -68,9 +68,9 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="<?php echo site_url("actualites") ?>">Actualités</a></li>
-          <li><a class="nav-link scrollto" href="<?php echo site_url("impacts-du-rechauffement-climatique") ?>">Impacts du réchauffement climatique</a></li>
-          <li><a class="getstarted scrollto" href="<?php echo site_url("sensibilisation-pour-rechauffement-climatique") ?>">Sensibilisations</a></li>
+          <li><a class="nav-link scrollto active" href="<?php echo site_url("actualites.php") ?>">Actualités</a></li>
+          <li><a class="nav-link scrollto" href="<?php echo site_url("impacts-du-rechauffement-climatique.php") ?>">Impacts du réchauffement climatique</a></li>
+          <li><a class="getstarted scrollto" href="<?php echo site_url("sensibilisation-pour-rechauffement-climatique.php") ?>">Sensibilisations</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

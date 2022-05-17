@@ -1,18 +1,11 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-class ConseqModel extends CI_Model{
-
-    function genererHtml($actu){
-        //$file = fopen($actu['url'].".html",'a');
-        file_put_contents("./application/views/".$actu['url'].".html",'<main id="main">
+<main id="main">
 
         <!-- ======= Breadcrumbs ======= -->
         <section id="breadcrumbs" class="breadcrumbs">
           <div class="container">
     
             <div class="d-flex justify-content-between align-items-center">
-              <h1>'.$actu['titre'].'</h1>
+              <h1>Préservons les océans</h1>
             </div>
     
           </div>
@@ -29,7 +22,7 @@ class ConseqModel extends CI_Model{
                   <div class="swiper-wrapper align-items-center">
     
                     <div class="swiper-slide">
-                      <img src="'.assets_url("/img/conseq/".$actu['image']).'" alt="">
+                      <img src="http://localhost/webdesignoptim/assets/img/sens/sens2.jpg" alt="">
                     </div>
     
                   </div>
@@ -41,13 +34,15 @@ class ConseqModel extends CI_Model{
                 <div class="portfolio-info">
                   <h3>Détails</h3>
                   <ul>
-                    <li><strong>Titre</strong>: '.$actu['titre'].'</li>
+                    <li><strong>Titre</strong>: Préservons les océans</li>
                   </ul>
                 </div>
                 <div class="portfolio-description">
-                  <h2>'.$actu['titre'].'</h2>
+                  <h2>Préservons les océans</h2>
                   <p>
-                  '.$actu['description'].'
+                  Pour lutter contre le changement climatique, nous devons préserver les océans. Pour cela, chacun de 
+  nous peut agir au quotidien. Par exemple, nous pouvons acheter des produits ménagers respectueux de l’environnement afin d’éviter de déverser des produits chimiques
+   polluants dans les océans.
                 </p>
                 </div>
               </div>
@@ -57,27 +52,4 @@ class ConseqModel extends CI_Model{
           </div>
         </section><!-- End Portfolio Details Section -->
     
-      </main><!-- End #main -->');
-    }
-
-    public function getListeConseq() {
-        $req="select * from consequence";
-        $list = array();
-        $query = $this->db->query($req);
-        foreach ($query->result_array() as $row){
-            $list[] = $row;
-        }
-        return $list;
-    }
-
-    public function getConseq($id) {
-        $req="select * from consequence where id=".$id;
-        $list = array();
-        $query = $this->db->query($req);
-        foreach ($query->result_array() as $row){
-            $list[] = $row;
-        }
-        return $list[0];
-    }
-}
-?>
+      </main><!-- End #main -->

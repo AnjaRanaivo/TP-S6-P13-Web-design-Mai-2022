@@ -34,6 +34,10 @@ class ConseqController extends CI_Controller {
         else{
 		$data['vue'] = 'ficheConseq';
 		$data['title'] = $data['consequence']['titre'];
+		if(!(file_exists("./application/views/".$data['consequence']['url'].".html"))){
+			$this->ConseqModel->genererHtml($data['consequence']);
+		}
+		$this->output->cache(10);
 		$this->load->view('template',$data);
         }
     }
